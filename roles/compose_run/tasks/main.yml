@@ -7,11 +7,11 @@
 - name: Run Docker Compose on Ubuntu
   command: docker-compose up --build -d
   args:
-    chdir: /home/ubuntu/dg/
+    chdir: /tmp/myrepo/
   when: ansible_distribution == 'Ubuntu'
 
 - name: Run Docker Compose on Amazon Linux
   command: docker-compose up --build -d
   args:
-    chdir: /home/ec2-user/dg/
+    chdir: /tmp/myrepo/
   when: ansible_distribution == 'Amazon'
