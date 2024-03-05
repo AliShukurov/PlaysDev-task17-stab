@@ -1,0 +1,17 @@
+---
+- name: Clone git repo
+  git:
+    repo: "{{ git_repo }}"
+    dest: "/tmp/myrepo"
+
+- name: Run Docker Compose on Ubuntu
+  command: docker-compose up --build -d
+  args:
+    chdir: /home/ubuntu/dg/
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Run Docker Compose on Amazon Linux
+  command: docker-compose up --build -d
+  args:
+    chdir: /home/ec2-user/dg/
+  when: ansible_distribution == 'Amazon'

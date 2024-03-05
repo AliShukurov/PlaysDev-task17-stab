@@ -1,0 +1,7 @@
+---
+- name: Install Docker and run container
+  hosts: all
+  become: yes
+  roles:
+    - docker_install
+    - compose_run
